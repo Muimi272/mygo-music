@@ -113,7 +113,9 @@ type app struct {
 	settingsPage      string // the settings' page that shows
 	settingsQuery     string // what's searched for in the settings
 	settingsSearchBox ui.Handle
-	settingsUnderTop  bool // the settings' page has scrolled under its top edge
+	settingsUnderTop  bool     // the settings' page has scrolled under its top edge
+	fontFamilies      []string // installed font families, loaded off the main thread
+	fontsLoading      bool
 
 	suggestions suggestState // what the search field's query may be after
 

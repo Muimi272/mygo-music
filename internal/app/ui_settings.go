@@ -22,6 +22,7 @@ func (a *app) openSettings() {
 	if a.win == nil {
 		return // no app to show a window in, as in tests
 	}
+	a.loadFontFamilies()
 	if a.settingsWin != nil {
 		a.settingsWin.Show()
 		a.settingsWin.Focus()
@@ -146,6 +147,7 @@ func settingsMatch(query string, texts ...string) bool {
 
 func (a *app) settingsView(c *ui.Context) {
 	t := *c.Theme()
+	t.Font = a.settings.Font
 	p := paletteFor(&t)
 	useAccent(&t, p)
 	c.SetTheme(&t)
@@ -353,6 +355,9 @@ func (a *app) settingsSections(c *ui.Context, p palette) []settingsSection {
 				s.Appearance = modes[i]
 				a.changed()
 			}
+		})
+		row(T("Font"), T("Choose an installed font for the interface and lyrics"), func() {
+			a.fontChoice(c)
 		})
 		// Only on macOS: elsewhere the icon is always in the notification
 		// area.

@@ -12,6 +12,7 @@ A native desktop music player written in Go with [MyGo](https://github.com/egois
 - Session restore
 - Podcast captions, written down on the device as episodes play
 - English and Simplified Chinese
+- Custom interface and lyrics font in Settings > General, from the fonts installed on your computer
 - Plugins can add accounts, catalogs, podcasts, stations, comments and pages of their own
 
 ## Build
